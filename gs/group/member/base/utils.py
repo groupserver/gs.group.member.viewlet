@@ -1,5 +1,6 @@
 # coding=utf-8
 from Products.CustomUserFolder.interfaces import IGSUserInfo
+from Products.GSGroupMember.groupmembership import userInfo_to_user, groupInfo_to_group
 import logging
 log = logging.getLogger('gs.group.member.base.utils') #@UndefinedVariable
 
@@ -34,7 +35,10 @@ def user_member_of_group(u, g):
     return retval
     return user
     
-def user_member_of_site(user, site):
+def user_member_of_site(u, site):
+    user = userInfo_to_user(u)
+    if hasattr(site, 'siteObj'):
+        site=site.siteObj
     retval = 'DivisionMember' in user.getRolesInContext(site)
     assert type(retval) == bool
     return retval
