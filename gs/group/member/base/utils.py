@@ -14,7 +14,7 @@ def user_member_of_group(u, g):
     RETURNS
         True if the user is the member of the group. False otherwise.
     '''
-    group = g.group
+    group = g.groupObj
     user = u.user
     
     retval = 'GroupMember' in user.getRolesInContext(group)
