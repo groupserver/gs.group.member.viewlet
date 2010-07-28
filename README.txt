@@ -1,5 +1,7 @@
+============
 Introduction
 ============
 
-This part of the code contains the code for admins to manage group members.
+This module contains a few utility functions that is used by the rest
+of the membership code in GroupServer.
 
