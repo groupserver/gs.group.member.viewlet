@@ -43,6 +43,21 @@ def user_member_of_site(u, site):
     assert type(retval) == bool
     return retval
 
+def user_admin_of_group(u, g):
+    group = groupInfo_to_group(g)
+    user = userInfo_to_user(u)
+    retval = (user_group_admin_of_group(user, group) or 
+              user_division_admin_of_group(user, group))
+    assert type(retval) == bool
+    return retval
+
+def user_group_admin_of_group(u, g):
+    group = groupInfo_to_group(g)
+    user = userInfo_to_user(u)
+    retval = ('GroupAdmin' in user.getRolesInContext(group))
+    assert type(retval) == bool
+    return retval
+
 def user_division_admin_of_group(u, g):
     group = groupInfo_to_group(g)
     user = userInfo_to_user(u)
