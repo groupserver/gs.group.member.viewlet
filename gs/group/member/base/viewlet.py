@@ -2,9 +2,18 @@
 from zope.cachedescriptors.property import Lazy
 from Products.XWFCore.XWFUtils import getOption
 from utils import user_admin_of_group, user_group_admin_of_group, \
-    user_division_admin_of_group
+    user_division_admin_of_group, user_member_of_group
 from gs.group.base.viewlet import GroupViewlet
 
+class MemberViewlet(GroupViewlet):
+    def __init__(self, group, request, view, manager):
+        GroupViewlet.__init__(self, group, request, view, manager)
+
+    @Lazy
+    def isMember(self):
+        retval = user_member_of_group(self.loggedInUser, self.groupInfo)
+        return retval
+        
 class GroupAdminViewlet(GroupViewlet):
     def __init__(self, group, request, view, manager):
         GroupViewlet.__init__(self, group, request, view, manager)
