@@ -33,7 +33,6 @@ def user_member_of_group(u, g):
         
     assert type(retval) == bool
     return retval
-    return user
     
 def user_member_of_site(u, site):
     user = userInfo_to_user(u)
