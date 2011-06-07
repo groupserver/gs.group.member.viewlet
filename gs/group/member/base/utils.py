@@ -71,3 +71,13 @@ def member_id(groupId):
     assert type(retval) == str
     return retval
 
+def user_participation_coach_of_group(userInfo, groupInfo):
+    assert IGSUserInfo.providedBy(userInfo), '%s is not a IGSUserInfo' % \
+      userInfo
+    assert IGSGroupInfo.providedBy(groupInfo)
+    ptnCoachId = groupInfo.get_property('ptn_coach_id', '')
+    retval = user_member_of_group(userInfo, groupInfo)\
+      and (userInfo.id == ptnCoachId)
+    assert type(retval) == bool
+    return retval
+
