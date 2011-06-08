@@ -1,4 +1,5 @@
 # coding=utf-8
+from Products.GSGroup.interfaces import IGSGroupInfo
 from Products.CustomUserFolder.interfaces import IGSUserInfo
 from Products.GSGroupMember.groupmembership import userInfo_to_user, groupInfo_to_group
 import logging
