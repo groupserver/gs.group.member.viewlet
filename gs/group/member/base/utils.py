@@ -6,17 +6,17 @@ import logging
 log = logging.getLogger('gs.group.member.base.utils') #@UndefinedVariable
 
 def user_member_of_group(u, g):
-    '''Is the user the member of the group
+    '''Is the user the member of the group?
     
     ARGUMENTS
-        "user":  A Custom User.
-        "group": A GroupServer group-folder.
+        "user":  A GroupServer user.
+        "group": A GroupServer group.
         
     RETURNS
         True if the user is the member of the group. False otherwise.
     '''
-    group = g.groupObj
-    user = u.user
+    group = groupInfo_to_group(g)
+    user = userInfo_to_user(u)
     
     retval = 'GroupMember' in user.getRolesInContext(group)
     
