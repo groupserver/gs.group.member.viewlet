@@ -5,6 +5,7 @@ from utils import user_admin_of_group, user_group_admin_of_group, \
     user_division_admin_of_group, user_member_of_group
 from gs.group.base.viewlet import GroupViewlet
 
+
 class MemberViewlet(GroupViewlet):
     def __init__(self, group, request, view, manager):
         GroupViewlet.__init__(self, group, request, view, manager)
@@ -13,18 +14,19 @@ class MemberViewlet(GroupViewlet):
     def isMember(self):
         retval = user_member_of_group(self.loggedInUser, self.groupInfo)
         return retval
-        
+
+
 class GroupAdminViewlet(GroupViewlet):
     def __init__(self, group, request, view, manager):
         GroupViewlet.__init__(self, group, request, view, manager)
-        
+
     @Lazy
     def isAdmin(self):
         retval = not(self.loggedInUser.anonymous) \
                     and user_admin_of_group(self.loggedInUser,
                                             self.groupInfo)
         return retval
-        
+
     @Lazy
     def isSiteAdmin(self):
         retval = user_division_admin_of_group(self.loggedInUser,
@@ -43,6 +45,7 @@ class GroupAdminViewlet(GroupViewlet):
         assert type(retval) == bool
         return retval
 
+
 class SiteAdminViewlet(GroupAdminViewlet):
     def __init__(self, group, request, view, manager):
         GroupAdminViewlet.__init__(self, group, request, view, manager)
@@ -59,4 +62,3 @@ class SiteAdminViewlet(GroupAdminViewlet):
         retval = not(self.loggedInUser.anonymous) and self.isSiteAdmin
         assert type(retval) == bool
         return retval
-
