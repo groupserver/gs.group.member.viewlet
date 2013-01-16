@@ -1,0 +1,10 @@
+<div id="gs-group-member-base-logged-in-member-info">
+  <h3>Membership</h3>
+  <p class="minor" tal:condition="view/isMember">
+    You are a member.
+    <a
+       tal:attributes="href string:/groups/leave.html?groupId=${view/groupInfo/id}" 
+       href="../leave.html?"><strong>Leave group?</strong></a>
+    <a title="Settings" href="email_settings.html"><strong>&#9881;</strong></a>
+  </p>
+</div><!--gs-group-member-base-logged-in-member-info-->

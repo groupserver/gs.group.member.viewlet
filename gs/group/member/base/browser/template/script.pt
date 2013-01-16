@@ -1,0 +1,7 @@
+<script type="text/javascript"
+        id="gs-group-member-base-script">
+  jQuery.noConflict();
+  jQuery(document).ready( function () {
+      jQuery('.gs-group-member-base-action').button();
+  });
+</script><!--gs-group-member-base-script-->
