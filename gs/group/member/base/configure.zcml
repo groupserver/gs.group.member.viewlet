@@ -29,4 +29,22 @@
     permission="zope2.View" 
     title="Membership Information Script"
     weight="10" />
+
+  <!--administration-->
+  <browser:viewlet
+    name="gs-group-member-base-admin"
+    manager="gs.group.home.interfaces.IGroupHomepageAdmin"
+    class=".viewlet.GroupAdminViewlet"
+    template="browser/template/admin.pt"
+    permission="zope2.ManageUsers"
+    title="Membership Administration"
+    weight="10" />
+  <browser:viewletManager
+    name="groupserver.GroupMemberAdminLinks"
+    for="gs.group.base.interfaces.IGSGroupMarker"
+    provides=".interfaces.IGroupMemberAdminLinks"
+    class="gs.viewlet.manager.WeightOrderedViewletManager"
+    template="browser/template/adminlinks.pt"
+    permission="zope2.View" />
+
 </configure>
