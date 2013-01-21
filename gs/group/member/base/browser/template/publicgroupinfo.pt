@@ -25,6 +25,7 @@
   <div tal:condition="not:view/loggedInUser/anonymous"
        id="gs-group-member-base-public-group-info-signed-in">
     <a class="gs-group-member-base-action"
+       tal:attributes="href string:${view/groupInfo/relative_url}/join.html"
        href="join.html">Join</a> and become a member.
   </div><!--gs-group-member-base-public-group-info-signed-in-->
 </div><!--gs-group-member-base-public-group-info-->
