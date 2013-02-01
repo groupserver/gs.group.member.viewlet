@@ -8,17 +8,25 @@ from gs.group.base.viewlet import GroupViewlet
 
 class MemberViewlet(GroupViewlet):
     def __init__(self, group, request, view, manager):
-        GroupViewlet.__init__(self, group, request, view, manager)
+        super(MemberViewlet, self).__init__(group, request, view, manager)
 
     @Lazy
     def isMember(self):
-        retval = user_member_of_group(self.loggedInUser, self.groupInfo)
+        retval = ((not self.loggedInUser.anonymous) and
+                    user_member_of_group(self.loggedInUser, self.groupInfo))
         return retval
 
 
-class GroupAdminViewlet(GroupViewlet):
+class MemberOnlyViewlet(MemberViewlet):
+    @Lazy
+    def show(self):
+        retval = self.isMember
+        return retval
+
+
+class GroupAdminViewlet(MemberViewlet):
     def __init__(self, group, request, view, manager):
-        GroupViewlet.__init__(self, group, request, view, manager)
+        super(GroupAdminViewlet, self).__init__(group, request, view, manager)
 
     @Lazy
     def isAdmin(self):
@@ -48,7 +56,7 @@ class GroupAdminViewlet(GroupViewlet):
 
 class SiteAdminViewlet(GroupAdminViewlet):
     def __init__(self, group, request, view, manager):
-        GroupAdminViewlet.__init__(self, group, request, view, manager)
+        super(SiteAdminViewlet, self).__init__(group, request, view, manager)
 
     # TODO: Sort out the posting limit mess
     @Lazy
