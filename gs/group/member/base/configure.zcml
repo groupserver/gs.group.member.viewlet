@@ -21,15 +21,6 @@
     title="Membership Information"
     weight="10" />
 
-  <browser:viewlet
-    name="gs-group-member-base-public-script"
-    manager="gs.group.home.interfaces.IGroupHomepageScripts" 
-    class=".viewlet.MemberViewlet"
-    template="browser/template/script.pt"
-    permission="zope2.View" 
-    title="Membership Information Script"
-    weight="10" />
-
   <!--administration-->
   <browser:viewlet
     name="gs-group-member-base-admin"
