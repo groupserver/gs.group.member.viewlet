@@ -1,5 +1,6 @@
-<div id="gs-group-member-base-public-group-info">
-  <h3>Membership</h3>
+<div id="gs-group-member-base-public-group-info" 
+     role="region" aria-labelledby="gs-group-member-base-public-group-info-h">
+  <h3 id="gs-group-member-base-public-group-info-h">Membership</h3>
   <p class="minor">
     This group is public to view, but only members can post.
   </p>

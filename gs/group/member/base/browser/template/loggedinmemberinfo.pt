@@ -1,5 +1,6 @@
-<div id="gs-group-member-base-logged-in-member-info">
-  <h3>Membership</h3>
+<div id="gs-group-member-base-logged-in-member-info" role="region" 
+     aria-labelledby="gs-group-member-base-logged-in-member-info-h">
+  <h3 id="gs-group-member-base-logged-in-member-info-h">Membership</h3>
   <p class="minor" tal:condition="view/isMember">
     You are a member.
     <a
