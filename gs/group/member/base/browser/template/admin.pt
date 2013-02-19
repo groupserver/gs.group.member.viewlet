@@ -1,7 +1,5 @@
 <div id="gs-group-member-base-admin">
-  <p class="label">
-    Group Members
-  </p>
+  <h4>Group Members</h4>
   <p tal:replace="structure provider:groupserver.GroupMemberAdminLinks">
     The links
   </p>
