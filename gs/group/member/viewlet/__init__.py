@@ -1,3 +1,5 @@
-# coding=utf-8
-from viewlet import MemberViewlet, GroupAdminViewlet  # lint:ok
-from viewlet import SiteAdminViewlet  # lint:ok
+# -*- coding: utf-8 -*-
+#lint:disable
+from viewlet import MemberViewlet, GroupAdminViewlet
+from viewlet import SiteAdminViewlet
+#lint:enable

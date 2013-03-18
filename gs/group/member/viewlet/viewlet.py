@@ -1,4 +1,4 @@
-# coding=utf-8
+# -*- coding: utf-8 -*-
 from zope.cachedescriptors.property import Lazy
 from Products.XWFCore.XWFUtils import getOption
 from utils import user_admin_of_group, user_group_admin_of_group, \
