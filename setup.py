@@ -5,7 +5,7 @@ from version import get_version
 
 version = get_version()
 
-setup(name='gs.group.member.base',
+setup(name='gs.group.member.viewlet',
     version=version,
     description="The core group-member code for GroupServer.",
     long_description=open("README.txt").read() + "\n" +
@@ -32,10 +32,11 @@ setup(name='gs.group.member.base',
     zip_safe=False,
     install_requires=[
         'setuptools',
+        'gs.group.base',
+        'gs.group.member.base',
         # -*- Extra requirements: -*-
     ],
     entry_points="""
     # -*- Entry points: -*-
     """,
 )
-
