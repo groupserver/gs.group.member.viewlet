@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 #lint:disable
-from viewlet import MemberViewlet, GroupAdminViewlet
-from viewlet import SiteAdminViewlet
+from member import MemberViewlet, MemberOnlyViewlet
+from groupadmin import GroupAdminViewlet
+from siteadmin import SiteAdminViewlet
 #lint:enable
