@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from zope.cachedescriptors.property import Lazy
-from utils import user_member_of_group
 from gs.group.base.viewlet import GroupViewlet
+from gs.group.member.base import user_member_of_group
 
 
 class MemberViewlet(GroupViewlet):

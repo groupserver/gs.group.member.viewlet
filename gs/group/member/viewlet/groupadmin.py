@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from zope.cachedescriptors.property import Lazy
-from gs.group.member.base.utils import user_admin_of_group, \
+from gs.group.member.base import user_admin_of_group, \
     user_group_admin_of_group, user_division_admin_of_group
 from member import MemberViewlet
 
