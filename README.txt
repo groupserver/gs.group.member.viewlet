@@ -42,7 +42,18 @@ member. This class is the parent of all the other member-viewlets.
 
 The ``gs.group.member.viewlet.MemberOnlyViewlet`` viewlet is a subclass of
 the `MemberViewlet`_. It sets the ``show`` property to ``True`` if the
-logged in user is a group member.
+logged in user is a group member. For example, the viewlet that displays
+the *Hide a Post* JavaScript in a topic [#topic]_::
+
+  <browser:viewlet 
+    name="gs-group-messages-topic-hide-js"
+    manager=".interfaces.ITopicJavaScript"
+    template="browser/templates/hidejs.pt"
+    class="gs.group.member.viewlet.MemberOnlyViewlet"
+    permission="zope2.View"
+    weight="35"
+    title="Show and Hide Buttons" />
+
 
 ``GroupAdminViewlet``
 ---------------------
@@ -59,12 +70,34 @@ Property         Description
 ``isGroupAdmin`` ``True`` if the logged in user is a group administrator.
 ================ =========================================================
 
+For example, the *Encouragement* [#encouragement]_ that is added to the
+Group page::
+
+  <browser:viewlet 
+    name="gs-group-encouragement-area"
+    manager="gs.group.home.interfaces.IGroupHomepageScripts"
+    for="gs.group.base.interfaces.IGSGroupMarker"
+    template="browser/templates/encouragementarea.pt"
+    class="gs.group.member.viewlet.GroupAdminViewlet"
+    permission="zope2.ManageProperties"
+    weight="90"
+    title="Encouragement" />
+
 ``SiteAdminViewlet``
 --------------------
 
 The ``gs.group.member.viewlet.SiteAdminViewlet`` is a subclass of the
 `GroupAdminViewlet`_. It sets the ``show`` property to ``True`` if the
-logged in user is a site administrator.
+logged in user is a site administrator. For example, the viewlet that list
+all the links to change the group properties [#properties]_::
+
+  <browser:viewlet 
+    name="gs-group-properties-admin"
+    manager="gs.group.home.interfaces.IGroupHomepageAdmin"
+    template="browser/templates/admin.pt"
+    class="gs.group.member.viewlet.SiteAdminViewlet"
+    permission="zope2.ManageProperties"
+    weight="20" />
 
 Resources
 =========
@@ -84,5 +117,16 @@ Resources
                    group viewlet
                    <https://source.iopen.net/groupserver/gs.group.base>
 
+.. [#topic] See ``gs.group.messages.topic``
+            <https://source.iopen.net/groupserver/gs.group.messages.topic>
+
+.. [#encouragement] See ``gs.group.encouragement``
+                    <https://source.iopen.net/groupserver/gs.group.encouragement>
+
+.. [#properties] Group administrators can only alter the membership of the
+                 group, and edit the *About* box. All other properties are
+                 the purview of the site administrator. See
+                 ``gs.group.properties``
+                 <https://source.iopen.net/groupserver/gs.group.properties>
 
 ..  LocalWords:  viewlets
