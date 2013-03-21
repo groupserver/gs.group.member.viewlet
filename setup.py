@@ -7,7 +7,7 @@ version = get_version()
 
 setup(name='gs.group.member.viewlet',
     version=version,
-    description="The core group-member code for GroupServer.",
+    description="The core group-member viewlet code for GroupServer.",
     long_description=open("README.txt").read() + "\n" +
                     open(os.path.join("docs", "HISTORY.txt")).read(),
     classifiers=[
@@ -32,9 +32,10 @@ setup(name='gs.group.member.viewlet',
     zip_safe=False,
     install_requires=[
         'setuptools',
+        'zope.cachedescriptors',
         'gs.group.base',
         'gs.group.member.base',
-        # -*- Extra requirements: -*-
+        'Products.XWFCore',
     ],
     entry_points="""
     # -*- Entry points: -*-
